@@ -10,17 +10,9 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_16_155723) do
+ActiveRecord::Schema.define(version: 2018_06_23_140313) do
 
-  create_table "calendars", force: :cascade do |t|
-    t.string "title"
-    t.string "description"
-    t.datetime "start_date"
-    t.datetime "end_date"
-    t.string "reminder"
-    t.string "recurring"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
+# Could not dump table "calendars" because of following StandardError
+#   Unknown type 'stringrake' for column 'userid'
 
 end

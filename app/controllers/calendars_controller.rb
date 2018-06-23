@@ -8,6 +8,22 @@ class CalendarsController < ApplicationController
     render json: @calendars
   end
 
+  # GET /calendars/search/{keyword}
+  def search
+    @calendars = Calendar.all
+
+    result_array = Array.new
+
+    @calendars.each_entry { |sonuc|
+      if params['keyword'].in? sonuc.title.downcase or params['keyword'].in? sonuc.description.downcase
+
+        result_array << sonuc
+      end
+    }
+
+    render json: result_array
+  end
+
   # GET /calendars/1
   def show
     render json: @calendar
@@ -46,6 +62,6 @@ class CalendarsController < ApplicationController
 
     # Only allow a trusted parameter "white list" through.
     def calendar_params
-      params.require(:calendar).permit(:title, :description, :start_date, :end_date, :reminder, :recurring)
+      params.require(:calendar).permit(:title, :userid, :description, :start_date, :end_date, :reminder, :recurring)
     end
 end
