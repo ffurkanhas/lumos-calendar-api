@@ -8,6 +8,22 @@ class CalendarsController < ApplicationController
     render json: @calendars
   end
 
+  # GET /calendars/search/{keyword}
+  def search
+    @calendars = Calendar.all
+
+    result_array = Array.new
+
+    @calendars.each_entry { |sonuc|
+      if params['keyword'].in? sonuc.title.downcase or params['keyword'].in? sonuc.description.downcase
+
+        result_array << sonuc
+      end
+    }
+
+    render json: result_array
+  end
+
   # GET /calendars/1
   def show
     render json: @calendar
