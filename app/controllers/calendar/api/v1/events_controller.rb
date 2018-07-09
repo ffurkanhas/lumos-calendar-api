@@ -32,6 +32,22 @@ module Calendar
           render json: result_array
         end
 
+        # GET /events/user/{userid}
+        def get_with_user_id
+          @events = Event.all
+
+          result_array = Array.new
+
+          @events.each_entry { |sonuc|
+            if params['userid'].to_i == sonuc.user_id
+
+              result_array << sonuc
+            end
+          }
+
+          render json: result_array
+        end
+
         # POST /events
         def create
           @event = Event.new(event_params)
