@@ -14,59 +14,38 @@ import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.util.Log;
-import android.widget.EditText;
 import android.widget.TextView;
-import android.widget.Toast;
 import android.app.Activity;
 
 public class MainActivity extends Activity {
 
-    EditText etResponse;
-    TextView tvIsConnected;
+    TextView etResponse;
+    TextView apiIsConnected;
+
     @Override
-
-
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-
-        /*
-
-
-
-        // get reference to the views
-        etResponse = (EditText) findViewById(R.id.etResponse);
-        tvIsConnected = (TextView) findViewById(R.id.tvIsConnected);
-
-        // check if you are connected or not
+        etResponse = (TextView) findViewById(R.id.etResponse);
+        apiIsConnected = (TextView) findViewById(R.id.tvIsConnected);
         if(isConnected()){
-            tvIsConnected.setBackgroundColor(0xFF00CC00);
-            tvIsConnected.setText("You are conncted");
+            apiIsConnected.setBackgroundColor(0xFF00CC00);
+            apiIsConnected.setText("You are connected");
         }
         else{
-            tvIsConnected.setText("You are NOT conncted");
+            apiIsConnected.setText("You are NOT connected");
         }
 
-        // call AsynTask to perform network operation on separate thread
-        new HttpAsyncTask().execute("https://lumos-calendar-api-deneme.herokuapp.com/calendars/search/deneme");
+        new HttpAsyncTask().execute("https://lumos-calendar-api.herokuapp.com/calendar/api/v1/events");
     }
 
     public static String GET(String url){
         InputStream inputStream = null;
         String result = "";
         try {
-
-            // create HttpClient
             HttpClient httpclient = new DefaultHttpClient();
-
-            // make GET request to the given URL
             HttpResponse httpResponse = httpclient.execute(new HttpGet(url));
-
-            // receive response as inputStream
             inputStream = httpResponse.getEntity().getContent();
-
-            // convert inputstream to string
             if(inputStream != null)
                 result = convertInputStreamToString(inputStream);
             else
@@ -102,17 +81,12 @@ public class MainActivity extends Activity {
     private class HttpAsyncTask extends AsyncTask<String, Void, String> {
         @Override
         protected String doInBackground(String... urls) {
-
             return GET(urls[0]);
         }
-        // onPostExecute displays the results of the AsyncTask.
         @Override
         protected void onPostExecute(String result) {
-            Toast.makeText(getBaseContext(), "Received!", Toast.LENGTH_LONG).show();
             etResponse.setText(result);
         }
-
-        */
     }
 
 

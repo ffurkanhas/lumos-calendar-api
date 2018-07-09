@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">CalendarAndroid</string>
+    <string name="enter_date_message">Tarihi Seciniz</string>
 </resources>
