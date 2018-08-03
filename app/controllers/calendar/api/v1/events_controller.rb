@@ -23,7 +23,7 @@ module Calendar
           result_array = Array.new
 
           @events.each_entry { |sonuc|
-            if params['keyword'].in? sonuc.title.downcase or params['keyword'].in? sonuc.description.downcase
+            if params['keyword'].downcase.in? sonuc.title.downcase or params['keyword'].downcase.in? sonuc.description.downcase
 
               result_array << sonuc
             end
