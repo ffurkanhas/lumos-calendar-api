@@ -4,8 +4,8 @@ android {
     compileSdkVersion 27
     useLibrary 'org.apache.http.legacy'
     defaultConfig {
-        applicationId "com.example.lenovo.calendarandroid"
-        minSdkVersion 15
+        applicationId "com.lumos.calendar.calendarandroid"
+        minSdkVersion 17
         targetSdkVersion 27
         versionCode 1
         versionName "1.0"
@@ -26,4 +26,7 @@ dependencies {
     testImplementation 'junit:junit:4.12'
     androidTestImplementation 'com.android.support.test:runner:1.0.2'
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+
+    implementation 'com.yuyakaido.android:couples-calendar:0.5.0'
+
 }

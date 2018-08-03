@@ -1,4 +1,4 @@
-package com.example.lenovo.calendarandroid;
+package com.lumos.calendar.calendarandroid;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

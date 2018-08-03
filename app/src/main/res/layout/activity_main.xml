@@ -7,7 +7,7 @@
     android:orientation="vertical">
 
     <TextView
-        android:id="@+id/myDate"
+        android:id="@+id/current_month"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
@@ -17,36 +17,16 @@
         android:textColor="#FFF"
         android:textSize="23sp" />
 
+    <com.yuyakaido.android.couplescalendar.ui.CouplesCalendarView
+        android:id="@+id/activity_main_couples_calendar_view"
+        android:layout_width="match_parent"
+        android:layout_height="290dp">
+    </com.yuyakaido.android.couplescalendar.ui.CouplesCalendarView>
+
     <LinearLayout
-        android:layout_width="300dp"
-        android:layout_height="wrap_content" />
-
-    <CalendarView
-        android:id="@+id/calendarView"
         android:layout_width="match_parent"
-        android:layout_height="340dp"
-        android:layout_marginTop="20dp"
-        android:background="#FFF" />
+        android:layout_height="match_parent"
+        android:background="@color/cc_event_orange_theme">
 
-    <TextView
-        android:id="@+id/tvIsConnected"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginBottom="5dp"
-        android:background="#FF0000"
-        android:text="is connected? "
-        android:textColor="#FFF"
-        android:textSize="18dp" />
-
-    <TextView
-        android:id="@+id/etResponse"
-        android:layout_width="match_parent"
-        android:layout_height="fill_parent"
-        android:layout_marginTop="10dp"
-        android:ems="10"
-        android:inputType="textMultiLine">
-
-        <requestFocus />
-    </TextView>
+    </LinearLayout>
 </LinearLayout>

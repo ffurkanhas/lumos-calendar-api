@@ -1,4 +1,4 @@
-package com.example.lenovo.calendarandroid;
+package com.lumos.calendar.calendarandroid;
 
 import org.junit.Test;
 
