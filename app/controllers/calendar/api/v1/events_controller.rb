@@ -1,8 +1,30 @@
+require 'fcm'
+
 module Calendar
   module Api
     module V1
       class EventsController < ApplicationController
         before_action :set_event, only: [:show, :update, :destroy]
+
+        # GET /notifications
+        def notifications
+          fcm = FCM.new("AAAAb464YU4:APA91bFGhaurXHTyKnj5CmsweY4IDYXPFz3SIHLJS2nQC0mQpJjSZl37ik4rDJEls-Hpsyc_3NU7mwkbSM4z5wvZaFOrQOCEEmm2k9SknOm2AORLYTS1AfhJ84cpvwIa6H7QmQTIbPo_1LrquMo_RMoqZVM9Q4OgGQ") # Find server_key on: your firebase console on web > tab general > web api key
+
+          registration_ids = ['f6oPZaxix8w']
+
+          options = {
+              priority: "high",
+              collapse_key: "updated_score",
+              notification: {
+                  title: "Message Title",
+                  body: "Hi, Worked perfectly",
+                  icon: "myicon"}
+          }
+
+          response = fcm.send(registration_ids, options)
+
+          render response
+        end
 
         # GET /events
         def index

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
         resources :users
         get 'events/search/:keyword', to: 'events#search'
         get 'events/user/:userid', to: 'events#get_with_user_id'
+        get 'notifications', to: 'events#notifications'
       end
     end
   end
